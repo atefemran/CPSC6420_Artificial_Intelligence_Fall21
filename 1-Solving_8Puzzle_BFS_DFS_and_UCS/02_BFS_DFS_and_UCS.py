@@ -1,11 +1,7 @@
 import math
-import itertools
-from itertools import permutations
-from queue import Queue
-import random
 from collections import deque
 
-class State:                ## the definition of each state ###################################################################
+class State:                    ## the definition of each state #####################################################
     def __init__(self, state, parent, action, depth, cost):
         
         self.state = state                  # the state itself
@@ -24,7 +20,7 @@ class State:                ## the definition of each state ####################
         def __cmp__(self, other):
             return (self.cost, other.cost)
 
-def action_result(state, action):   ## the results of each action ###########################################################
+def action_result(state, action):   ## the results of each action   #################################################
     current_state = str(state.state[:])
     count = (current_state.index('0'))+1
     empty_row = math.ceil(count/3)
@@ -83,7 +79,7 @@ def action_result(state, action):   ## the results of each action ##############
     output_state = State(output_state, state, action, state.depth + 1, cost)
     return output_state
 
-## Breadth First Algorithm          #####################################################################################
+## Breadth First Algorithm      #####################################################################################
 
 def bfs(intial_state, goal_state):
 
@@ -118,7 +114,7 @@ def bfs(intial_state, goal_state):
     if Goal == True: 
         return child
 
-## Depth First Search          #####################################################################################
+## Depth First Search           #####################################################################################
 
 def dfs(intial_state, goal_state):
 
@@ -200,50 +196,54 @@ def ucs(intial_state, goal_state):
     if Goal == True: 
         return child
 
-## User Input #####################################################################
+## Main                         #####################################################################################
 
-InitialState = '867013254' 
-GoalState = '123804765' 
-SearchMethod = 'ucs'
+def main(InitialState, GoalState, SearchMethod):
+    if SearchMethod == 'bfs':
+        AchievedGoal = bfs(InitialState, GoalState)
+    elif SearchMethod == 'dfs':
+        AchievedGoal = dfs(InitialState, GoalState)
+    elif SearchMethod == 'ucs':
+        AchievedGoal = ucs(InitialState, GoalState)
 
-## Main     #######################################################################
+    Depth = AchievedGoal.depth
 
-if SearchMethod == 'bfs':
-    AchievedGoal = bfs(InitialState, GoalState)
-elif SearchMethod == 'dfs':
-    AchievedGoal = dfs(InitialState, GoalState)
-elif SearchMethod == 'ucs':
-    AchievedGoal = ucs(InitialState, GoalState)
-
-Depth = AchievedGoal.depth
-
-Path = []
-i = 0
-while InitialState != AchievedGoal.state:
-        action = AchievedGoal.action
-        if action == 1:
-            move = 'Up'
-        if action == 2:
-            move = 'Down'
-        if action == 3:
-            move = 'Left'
-        if action == 4:
-            move = 'Right'
-        
-        if Depth > 50:
-            i +=1
-            if i<=6:         
-                Path.insert(0, [AchievedGoal.state, move])
-            elif i<=10:
-                Path.insert(0, "..")
-            elif i>(Depth-6):
-                Path.insert(0, [move, AchievedGoal.state])
-        else: 
-            Path.insert(0, [move, AchievedGoal.state])
+    Path = []
+    i = 0
+    while InitialState != AchievedGoal.state:
+            action = AchievedGoal.action
+            if action == 1:
+                move = 'Up'
+            if action == 2:
+                move = 'Down'
+            if action == 3:
+                move = 'Left'
+            if action == 4:
+                move = 'Right'
             
-        AchievedGoal = AchievedGoal.parent
+            if Depth > 50:
+                i +=1
+                if i<=6:         
+                    Path.insert(0, [AchievedGoal.state, move])
+                elif i<=10:
+                    Path.insert(0, "..")
+                elif i>(Depth-6):
+                    Path.insert(0, [move, AchievedGoal.state])
+            else: 
+                Path.insert(0, [move, AchievedGoal.state])
+                
+            AchievedGoal = AchievedGoal.parent
 
-Path.insert(0, [AchievedGoal.state])
+    Path.insert(0, [AchievedGoal.state])
 
-print("Depth / Number of actions = ", Depth)
-print("Actions and States are: ", Path)
+    print("Depth / Number of actions = ", Depth)
+    print("Actions and States are: ", Path)
+
+## User Input                   #####################################################################################
+
+InitialState = '867013254'      # the intial state of the puzzle from top left to bottom right
+GoalState = '123804765'         # the goal state of the puzzle from top left to bottom right
+SearchMethod = 'dfs'            # "bfs", "dfs", or "ucs" 
+
+if __name__ == "__main__":
+    main(InitialState, GoalState, SearchMethod)
