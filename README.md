@@ -2,9 +2,9 @@
 The repo contains the projects for CPSC6420 Artificial Intelligence during the Fall semester 2021, Clemson University - International Center for Automotive Research.
 
 ## Course Modules
-- [x] Search 
+- [x] Search
   - Uniformed search (depth-first search, breadth-first search, uniform cost search)
-  - Informed search (greedy search, A*, heuristics) 
+  - Informed search (greedy search, A*, heuristics)
 - [x] Markov Decision Processes
   - Value iteration
   - Policy evaluation
@@ -29,8 +29,7 @@ The repo contains the projects for CPSC6420 Artificial Intelligence during the F
   - Multi-layer feed-forward neural networks
 
 ## Projects
-#### [1- Search Algorithms(Uniformed): Solving 8 Puzzle using BFS, DFS, and UCS](https://github.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/tree/main/1-Solving_8Puzzle_BFS_DFS_and_UCS) 
+#### [1- Search Algorithms(Uniformed): Solving 8 Puzzle using BFS, DFS, and UCS](https://github.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/tree/main/1-Solving_8Puzzle_BFS_DFS_and_UCS)
 <img src="https://github.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/blob/main/1-Solving_8Puzzle_BFS_DFS_and_UCS/images/BFS_DFS_USC.png" alt="algorithms" width="500">
-
 
 #### [2- Markov decision process: Finding the optimal path for a robot]()
