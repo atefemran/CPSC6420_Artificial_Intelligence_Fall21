@@ -17,9 +17,9 @@ The program receives the user input of `InitialState`, `GoalState`, and `SearchM
 
 ## Example
 User Input: \
-`InitialState = '867013254'      # the intial state of the puzzle from top left to bottom right` \
-`GoalState = '123804765'         # the goal state of the puzzle from top left to bottom right` \
-`SearchMethod = 'ucs'            # "bfs", "dfs", or "ucs" ` \
+`InitialState = '867013254'&nbsp;&nbsp;&nbsp;# the intial state of the puzzle from top left to bottom right` \
+`GoalState = '123804765'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# the goal state of the puzzle from top left to bottom right` \
+`SearchMethod = 'ucs'&nbsp;&nbsp;&nbsp;# "bfs", "dfs", or "ucs" ` \
 
 The output: \
 `Reached the goal! Number of iteration = 53590 , size of closed states: 13178`\
