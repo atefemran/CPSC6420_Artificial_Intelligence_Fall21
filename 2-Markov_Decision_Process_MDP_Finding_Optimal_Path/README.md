@@ -2,7 +2,7 @@
 ## Problem Statement
 The purpose is finding the optimal path for a robot in a given map with a goal cell reward and game-over cell penalty. The case study map is below. The code receives the map parameters, goal and penalty data, and the initial state, the noise [0:1], and the discount factor [0:1], and returns the value and policy iterations results along with the optimal path (which maximizes the value) from the start state.
 
-![Map Example](https://raw.githubusercontent.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/main/1-Solving_8Puzzle_BFS_DFS_and_UCS/images/8_puzzle.png)
+![Map Example](https://github.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/blob/main/2-Markov_Decision_Process_MDP_Finding_Optimal_Path/images/map_example.PNG?raw=true)
 
 Note: You can create different maps by changing the map parameters in the `Initializing the map` section in the code. For example: the map shown above has the below parameters: /
 `grid_width = 5`
@@ -20,12 +20,12 @@ Note that using these parameters, the robot states are defined with location and
 ## Program / Code Summary
 The program receives the input to build the map along with the MDP parameters, then finds the optimal route from the indicated start cell to the goal cell with the highest reward. High level of the code and how it works is in the below code structure diagram.
 
-![Code structure](https://raw.githubusercontent.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/main/1-Solving_8Puzzle_BFS_DFS_and_UCS/images/8_puzzle.png)
+![Code structure](https://github.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/blob/main/2-Markov_Decision_Process_MDP_Finding_Optimal_Path/images/cose_diagram.png?raw=true)
 
 
 ## Examples
 
-![Examples](https://raw.githubusercontent.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/main/1-Solving_8Puzzle_BFS_DFS_and_UCS/images/8_puzzle.png)
+![Examples](https://github.com/atefemran/CPSC6420_Artificial_Intelligence_Fall21/blob/main/2-Markov_Decision_Process_MDP_Finding_Optimal_Path/images/examples.PNG?raw=true)
 
 Note the change in the optimal route when the noise value was increased as the value for state (4,3,1) is significantly lower when the noise was introduced because there is a probability now of landing in the game-over cell (moving one cell ahead instead of 2 cells). That's why the robot took a longer route to avoid this high penalty probability.
 
